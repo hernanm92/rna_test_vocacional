@@ -25,7 +25,7 @@ def result_values(result)
 end
 
 #Create the network with 4 inputs, 1 hidden layer with 5 neurons, and 4 outputs
-net = Ai4r::NeuralNetwork::Backpropagation.new([4, 5, 4])
+net = Ai4r::NeuralNetwork::Backpropagation.new([4, 10, 4])
 
 #Initialize values
 #net.momentum = 0.15 
