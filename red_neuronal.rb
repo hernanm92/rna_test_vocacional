@@ -26,15 +26,16 @@ def result_values(result)
   puts "\n"
 end
 
-#Create the network with 4 inputs, 1 hidden layer with 5 neurons, and 4 outputs
+#Create the network with 5 inputs, 2 hidden layer with 10 neurons, and 5 outputs
 net = Ai4r::NeuralNetwork::Backpropagation.new([5, 10, 10, 5])
 
-#Initialize values
+#Configurate the network
 net.momentum = 0.1
 net.learning_rate = 0.1
 net.propagation_function = lambda { |x| 1/(1+Math.exp(-1*(x))) }
+net.disable_bias = false
 
-# Train the network 
+#Train the network 
 5000.times do |i|
   net.train([0, 1, 0, 0, 0], [1, 0, 0, 0, 0]) #Ingeniero
   net.train([0, 0, 1, 0, 0], [1, 0, 0, 0, 0])
@@ -55,7 +56,6 @@ end
 
 
 #Evaluate data with the trained network
-#puts skills
 result_values(net.eval(skills)) 
 puts "Resultado optimo: #{result_label(net.eval(skills))}"
 
